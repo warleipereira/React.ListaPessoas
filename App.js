@@ -6,7 +6,7 @@ import Pessoas from './src/components/pessoas';
 import axios from 'axios';
 
 
-const image = { uri: 'https://thumbs.dreamstime.com/b/salad-strawberry-avocado-onion-cheese-spinach-gray-plate-table-flat-lay-top-view-summer-healthy-food-vegetarian-189061114.jpg'};
+const image = { uri: 'https://thumbs.dreamstime.com/b/happy-family-sitting-green-grass-playing-park-concept-185548143.jpg'};
 
 
 export default class App extends React.Component{
@@ -21,21 +21,14 @@ export default class App extends React.Component{
   componentDidMount()
     {
         axios
-            .get('https://randomuser.me/api/?nat=br&results=100')
+            .get('https://randomuser.me/api/?nat=br&results=5')
             .then(response =>{
                 const {results} =  response.data;
-                //const names = results.map(people => people.name.first);
                 this.setState({pessoas : results});
             })
     }
 
-  renderList(){
-      const textElements = this.state.pessoas.map(pessoa =>{
-                          const {first} = pessoa.name;
-                          return <Pessoas texto={first}/>
-                          });
-      return textElements;
-    }
+
 
     render (){
       return (
@@ -43,7 +36,7 @@ export default class App extends React.Component{
               <Header label="Pessoas!"/>
               <ImageBackground source={image} style={styles.image}>
                 <View style={styles.boxpeople}>
-                  {this.renderList()}
+                  <Pessoas pessoas={this.state.pessoas}/>
                 </View>
                 <StatusBar style="auto" />
               
@@ -80,7 +73,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width:'100%',
     height: '100%'
-    ,borderRadius:10
+    
     ,opacity: 0.8
   },
 });
