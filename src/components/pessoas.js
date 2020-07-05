@@ -1,14 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback , Image} from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback , Image, FlexStyle} from 'react-native';
 
 const Pessoas  = props => {
     const {pessoas} = props;
 
     const textElements = pessoas.map(pessoa =>{
             const {first} = pessoa.name;
+            const {md5} = pessoa.login;
+            const {thumbnail} = pessoa.picture;
+      
+
             return (
-                <View key={first} style={styles.linha}>
-                    <Text  style={styles.text} >{first}</Text>;
+                <View key={md5} style={styles.linha}>
+                    <Image source={{uri: thumbnail}} style={styles.thumb} />
+                    <Text  style={styles.text}>{first}</Text>
                 </View>
             );
         });
@@ -25,28 +30,43 @@ const Pessoas  = props => {
 
 
 const styles = StyleSheet.create({
+
+    container:{
+        marginTop:0,
+        backgroundColor:"transparent",
+        width: '90%'    
+    
+    },
+    linha:{
+        
+         marginTop:25
+        ,borderWidth: 1
+        ,borderRadius:5
+        ,width: '100%'
+        ,height: 60
+       
+        ,flexDirection: 'row'
+        ,backgroundColor: 'white'
+        ,alignItems: 'center'
+        
+
+    },
     text:{
         fontSize: 30,
         color: "black"
+        ,flex:6
+        ,marginLeft:5
+        
     },
-    container:{
-        backgroundColor: '#ffffff'
-    },
-    linha:{
-        marginTop:25,
-        justifyContent: "center", 
-        alignItems: 'center',
-        borderWidth: 2,
-        borderRadius:10,
-        width: '95%',
-        height: 50
-    },
-    image: {
-       width: 100,
-        resizeMode: "cover",
-        justifyContent: "center",
-        alignItems: 'center'
-      }
+    thumb: {
+       
+         flex:1
+         ,aspectRatio:1
+        ,borderRadius: 50
+        ,marginLeft:5
+        
+       
+      },
 })
 
 

@@ -3,21 +3,23 @@ import {View,Text,StyleSheet} from 'react-native';
 
 const Header = (props) =>(
     <View style={styles.container}>
-        <Text style={styles.text}>{props.label}</Text>
+        <Text style={styles.text}>{props.label} - {props.qtde}</Text>
     </View>
 );
 
 
 const styles = {
     text:{
-        fontSize: 50,
+        fontSize: 35,
         color: "#ffffff"
     },
     container:{
-        marginTop:24,
-        justifyContent: "center", 
-        alignItems: 'center',
-        backgroundColor: '#6ca2f7'
+   
+        justifyContent: 'center'
+        ,alignItems: 'center'
+        ,flexDirection: 'row'
+        
+        ,backgroundColor: '#6ca2f7'
 
     }
 }
