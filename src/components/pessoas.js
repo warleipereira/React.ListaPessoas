@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback , Image, FlexStyle} from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback , Image, FlexStyle, TouchableOpacity} from 'react-native';
 
 const Pessoas  = props => {
     const {pessoas} = props;
@@ -11,10 +11,12 @@ const Pessoas  = props => {
       
 
             return (
-                <View key={md5} style={styles.linha}>
-                    <Image source={{uri: thumbnail}} style={styles.thumb} />
-                    <Text  style={styles.text}>{first}</Text>
-                </View>
+                <TouchableOpacity key={md5} onPress={()=>console.log('clicou em',  first)}>
+                    <View  style={styles.linha}>
+                        <Image source={{uri: thumbnail}} style={styles.thumb} />
+                        <Text  style={styles.text}>{first}</Text>
+                    </View>
+                </TouchableOpacity>
             );
         });
 
