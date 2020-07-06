@@ -11,7 +11,7 @@ const Pessoas  = props => {
       
 
             return (
-                <TouchableOpacity key={md5} onPress={()=>console.log('clicou em',  first)}>
+                <TouchableOpacity key={md5} onPress={()=>console.log('clicou em:',  first)}>
                     <View  style={styles.linha}>
                         <Image source={{uri: thumbnail}} style={styles.thumb} />
                         <Text  style={styles.text}>{first}</Text>

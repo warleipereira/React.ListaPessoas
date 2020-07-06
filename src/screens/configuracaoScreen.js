@@ -10,3 +10,5 @@ const Configuracao = props => {
         </View>
     )
 }
+
+export default Configuracao;

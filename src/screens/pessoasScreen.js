@@ -10,7 +10,7 @@ import Constants from 'expo-constants';
 const image = { uri: 'https://thumbs.dreamstime.com/b/red-beet-soup-sour-cream-ukrainian-cuisine-borsch-top-view-free-space-your-text-rustic-style-183992158.jpg'};
 
 
-export default class App extends React.Component{
+export default class PessoasScreen extends React.Component{
 
   constructor(props){
       super(props);
@@ -80,4 +80,3 @@ const styles = StyleSheet.create({
     ,alignItems: 'center'
   },
 });
-
