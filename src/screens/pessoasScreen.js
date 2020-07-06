@@ -1,13 +1,13 @@
 import { StatusBar, setStatusBarBackgroundColor } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, ImageBackground ,  ScrollView,SafeAreaView} from 'react-native';
-import Header from '../components/header';
+//import Header from '../components/header';
 import Pessoas from '../components/pessoas';
 import axios from 'axios';
 import Constants from 'expo-constants';
 
 
-const image = { uri: 'https://thumbs.dreamstime.com/b/red-beet-soup-sour-cream-ukrainian-cuisine-borsch-top-view-free-space-your-text-rustic-style-183992158.jpg'};
+const image = { uri: 'https://thumbs.dreamstime.com/b/dandelion-seeds-their-pappus-photographed-as-fine-art-concept-taraxacum-officinale-common-dandelion-often-simply-called-184104475.jpg'};
 
 
 export default class PessoasScreen extends React.Component{
@@ -32,13 +32,18 @@ export default class PessoasScreen extends React.Component{
 
 
     render (){
+      
       return (
             <SafeAreaView style={styles.container}>
                 <ImageBackground source={image} style={styles.image}>
-                  <Header label="Lista de Contatos" qtde={this.state.pessoas.length}/>             
+                       
                     <ScrollView style={styles.scrollView}>
                       <View style={styles.boxpeople}>                    
-                            <Pessoas pessoas={this.state.pessoas}/>                 
+                            <Pessoas 
+                              pessoas={this.state.pessoas}
+                              onPressItem={pageParams => {
+                                        this.props.navigation.navigate('PessoasDetalhesScreen', pageParams);
+                            }} />                 
                       </View>           
                       <StatusBar style="auto" />
                     </ScrollView>
@@ -54,7 +59,7 @@ export default class PessoasScreen extends React.Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    //marginTop: Constants.statusBarHeight,
   },
   image: {
     flex: 1,
@@ -71,12 +76,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   boxpeople: {
-    flexDirection: "column",
-    backgroundColor:"transparent",
-    width:'100%',
-    height: '95%'
+    //flexDirection: "column",
+    //backgroundColor:"transparent",
+    //width:'100%',
+    //height: '100%'
     //,opacity: 0.8,
 
-    ,alignItems: 'center'
+    alignItems: 'center'
   },
 });

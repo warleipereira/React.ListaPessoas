@@ -2,16 +2,19 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback , Image, FlexStyle, TouchableOpacity} from 'react-native';
 
 const Pessoas  = props => {
-    const {pessoas} = props;
+    const {pessoas, onPressItem } = props;
 
-    const textElements = pessoas.map(pessoa =>{
+    const items = pessoas.map(pessoa =>{
             const {first} = pessoa.name;
             const {md5} = pessoa.login;
             const {thumbnail} = pessoa.picture;
       
 
             return (
-                <TouchableOpacity key={md5} onPress={()=>console.log('clicou em:',  first)}>
+                <TouchableOpacity 
+                    key={md5} 
+                    onPress={()=>{ onPressItem({pessoa});
+                             }}>
                     <View  style={styles.linha}>
                         <Image source={{uri: thumbnail}} style={styles.thumb} />
                         <Text  style={styles.text}>{first}</Text>
@@ -22,7 +25,7 @@ const Pessoas  = props => {
 
         return (
             <View style={styles.container}>
-                {textElements}
+                {items}
             </View>
         )
 
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
     },
     linha:{
         
-         marginTop:25
+         marginTop:6
         ,borderWidth: 1
         ,borderRadius:5
         ,width: '100%'

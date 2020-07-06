@@ -3,7 +3,7 @@ import {View,Text,StyleSheet} from 'react-native';
 
 const Header = (props) =>(
     <View style={styles.container}>
-        <Text style={styles.text}>{props.label} - {props.qtde}</Text>
+        <Text style={styles.text}>{props.label} | {props.qtde}</Text>
     </View>
 );
 
