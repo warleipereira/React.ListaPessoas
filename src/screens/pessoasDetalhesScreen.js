@@ -18,6 +18,8 @@ export default class PessoasDetalhesScreen extends React.Component {
 					source={{ uri: pessoa.picture.large }}
 					style={styles.avatar}/>
 				<View style={styles.detailContainer}>
+                    <Line label="Nome:" content={pessoa.name.first +' ' +pessoa.name.last} />
+                    <Line label="Idade:" content={pessoa.dob.age} />
 					<Line label="Email:" content={pessoa.email} />
 					<Line label="Cidade:" content={pessoa.location.city} />
 					<Line label="Estado:" content={pessoa.location.state} />

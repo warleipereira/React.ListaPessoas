@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		paddingTop: 3,
 		paddingBottom: 3,
-		borderWidth: 1,
+		borderWidth: 0,
 		borderColor: '#C5C5C5',
 	},
 	cell: {

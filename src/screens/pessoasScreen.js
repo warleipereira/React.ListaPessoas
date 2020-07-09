@@ -22,7 +22,7 @@ export default class PessoasScreen extends React.Component{
   componentDidMount()
     {
         axios
-            .get('https://randomuser.me/api/?nat=br&results=10')
+            .get('https://randomuser.me/api/?results=100') //nat=br&
             .then(response =>{
                 const {results} =  response.data;
                 this.setState({pessoas : results});
